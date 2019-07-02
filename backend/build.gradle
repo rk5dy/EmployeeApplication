@@ -28,6 +28,19 @@ targetCompatibility = 1.8
 dependencies {
     compile("org.springframework.boot:spring-boot-starter-web")
     compile("org.springframework.boot:spring-boot-starter-data-mongodb")
+    compile("org.springframework:spring-core")
+    compile("org.springframework.boot:spring-boot-starter-jdbc")
+    compile("org.springframework.boot:spring-boot-starter-web")
+    compile("org.springframework.boot:spring-boot-starter-actuator")
+    compile("org.springframework.boot:spring-boot-starter-security")
+    compile("org.springframework.boot:spring-boot-starter-data-jpa")
+    compile("com.fasterxml.jackson.datatype:jackson-datatype-hibernate4")
+    compile("mysql:mysql-connector-java")
+    compile("io.rest-assured:rest-assured")
+    compile("io.rest-assured:json-schema-validator")
+
+    testCompile("org.springframework.security:spring-security-test")
+    testCompile("org.hsqldb:hsqldb")
     testCompile("junit:junit")
     testCompile("org.springframework.boot:spring-boot-starter-test")
 }

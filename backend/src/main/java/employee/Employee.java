@@ -1,4 +1,4 @@
-package hello;
+package employee;
 
 import org.springframework.data.annotation.Id;
 
@@ -20,6 +20,18 @@ public class Employee {
 
     public String getName() {
       return String.format("%s %s", firstName, lastName);
+    }
+
+    public String getId(String id) {
+      return this.id;
+    }
+
+    public void setId(String id) {
+      this.id = id;
+    }
+
+    public String getFirstName() {
+      return this.firstName;
     }
 
     @Override
