@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import AddEmployee from '../components/AddEmployee';
 import EmployeeList from '../components/EmployeeList';
 import axios from 'axios';
 
@@ -17,13 +18,13 @@ class EmployeeContainer extends React.Component {
         this.setState((state, props) => ({
           employeeList : response.data
         }))
-        //console.log(this.state.employeeList);
       });
   }
 
   render() {
     // console.log(this.state.employeeList);
     return (<div>
+        <AddEmployee id="addEmployee" />
         <EmployeeList id="employeeList" employees={this.state.employeeList}/>
     </div>);
   }
