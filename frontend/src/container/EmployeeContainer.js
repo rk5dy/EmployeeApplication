@@ -12,7 +12,7 @@ class EmployeeContainer extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:9090/employee/')
+    axios.get('http://localhost:9090/employee/all')
       .then(response => {
         //console.log(response.data)
         this.setState((state, props) => ({
