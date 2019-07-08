@@ -1,9 +1,9 @@
-import React, {Component} from 'react';
+import React from 'react';
 
 const Header = (props) => {
   const headerList = props.headers.map((headerName) => {
       return (
-        <th scope="col">{headerName.name}</th>
+        <th key={headerName.key} scope="col">{headerName.name}</th>
       );
     }
   );

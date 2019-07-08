@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import Header from './Header';
 import Employee from './Employee';
 
@@ -18,7 +18,7 @@ class EmployeeList extends React.Component {
       {key: 0, name: 'First Name'},
       {key: 1, name: 'Last Name'}
     ]
-    
+
     return (
       <table className="table table-dark">
         <Header key="tableHeader" headers={headerNames} />

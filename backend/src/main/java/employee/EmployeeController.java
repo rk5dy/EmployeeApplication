@@ -25,21 +25,20 @@ public class EmployeeController {
     private EmployeeRepository repository;
 
     // basic GET method
-    @GetMapping("/all")
+    @GetMapping("")
     public List<Employee> getAllEmployees() {
       return repository.findAll();
     }
 
     // basic POST method
     @PostMapping("/create")
-    public Employee createEmployee(@Valid @RequestBody Employee employee) {
-      System.out.println("Create employee: " + employee.getName() + "...");
-
+    @ResponseBody
+    public Employee createEmployee(@RequestBody Employee employee) {
       return repository.save(employee);
     }
 
     // basic PUT method
-    @PutMapping("/edit/{employeeId}")
+    @PutMapping(path="/edit/{employeeId}", consumes="application/json")
     public Map<String, Object> editEmployee(@PathVariable("employeeId") String employeeId,
       @RequestBody Map<String, Object> employeeMap) {
         Employee employee = new Employee(

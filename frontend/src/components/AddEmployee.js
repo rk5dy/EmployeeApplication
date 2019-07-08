@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import axios from 'axios';
 
 class AddEmployee extends React.Component {
@@ -12,7 +12,7 @@ class AddEmployee extends React.Component {
 
   handleSubmit(event) {
     console.log(this.state);
-    axios.post('http://localhost:9090/employee/add', {firstName: this.state.firstName, lastName: this.state.lastName})
+    axios.post('http://localhost:9090/employee/create', {firstName: this.state.firstName, lastName: this.state.lastName})
       .then(response => {
         //console.log(response.data)
         console.log(this.state)

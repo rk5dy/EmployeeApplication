@@ -1,4 +1,4 @@
-import React, {Component} from 'react';
+import React from 'react';
 import AddEmployee from '../components/AddEmployee';
 import EmployeeList from '../components/EmployeeList';
 import axios from 'axios';
@@ -12,7 +12,7 @@ class EmployeeContainer extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:9090/employee/all')
+    axios.get('http://localhost:9090/employee')
       .then(response => {
         //console.log(response.data)
         this.setState((state, props) => ({
