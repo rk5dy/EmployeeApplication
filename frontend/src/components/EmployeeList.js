@@ -5,8 +5,9 @@ import Employee from './Employee';
 class EmployeeList extends React.Component {
   renderEmployees() {
     const employeeList = this.props.employees.map((employee) => {
+        console.log(employee);
         return (
-          <Employee key={employee.id} firstName={ employee.firstName } lastName={ employee.lastName }/>
+          <Employee key={employee.id} employeeId={employee.id} firstName={ employee.firstName } lastName={ employee.lastName }/>
         )
       }
     );

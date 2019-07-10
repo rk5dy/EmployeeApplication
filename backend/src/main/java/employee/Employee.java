@@ -6,10 +6,10 @@ import org.springframework.data.annotation.Id;
 public class Employee {
 
     @Id
-    public String id;
+    private String id;
 
-    public String firstName;
-    public String lastName;
+    private String firstName;
+    private String lastName;
 
     public Employee() {}
 
@@ -32,6 +32,18 @@ public class Employee {
 
     public String getFirstName() {
       return this.firstName;
+    }
+
+    public void setFirstName(String firstName) {
+      this.firstName = firstName;
+    }
+
+    public String getLastName() {
+      return this.lastName;
+    }
+
+    public void setLastName(String lastName) {
+      this.lastName = lastName;
     }
 
     @Override

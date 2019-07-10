@@ -31,7 +31,7 @@ public class EmployeeController {
     }
 
     // basic POST method
-    @PostMapping("/create")
+    @PostMapping(path="/create", consumes="application/json", produces="application/json")
     @ResponseBody
     public Employee createEmployee(@RequestBody Employee employee) {
       return repository.save(employee);
@@ -53,6 +53,7 @@ public class EmployeeController {
     }
 
     @DeleteMapping("/delete/{employeeId}")
+    @ResponseBody
     public String deleteEmployee(@PathVariable("employeeId") String employeeId) {
         repository.findById(employeeId).map(employee -> {
           repository.delete(employee);
