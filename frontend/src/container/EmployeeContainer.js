@@ -2,6 +2,7 @@ import React from 'react';
 import AddEmployee from '../components/AddEmployee';
 import EmployeeList from '../components/EmployeeList';
 import axios from 'axios';
+import config from '../config/config.js';
 
 class EmployeeContainer extends React.Component {
   constructor(props) {
@@ -12,7 +13,7 @@ class EmployeeContainer extends React.Component {
   }
 
   componentDidMount() {
-    axios.get('http://localhost:9090/employee')
+    axios.get(config.hosturi + '/employee')
       .then(response => {
         //console.log(response.data)
         this.setState((state, props) => ({
@@ -22,7 +23,7 @@ class EmployeeContainer extends React.Component {
   }
 
   render() {
-    // console.log(this.state.employeeList);
+    console.log(this.state.employeeList.length);
     return (<div>
         <AddEmployee id="addEmployee" />
         <EmployeeList id="employeeList" employees={this.state.employeeList}/>

@@ -1,18 +1,19 @@
 import React from 'react';
 import axios from 'axios';
+import config from '../config/config';
 
 class AddEmployee extends React.Component {
-  constructor() {
-    super();
+  constructor(props) {
+    super(props);
     this.state = {
       firstName: "",
-      lastName: ""
+      lastName: "",
     };
   }
 
   handleSubmit(event) {
     console.log(this.state);
-    axios.post('http://localhost:9090/employee/create', {firstName: this.state.firstName, lastName: this.state.lastName})
+    axios.post(config.hosturi + '/employee/create', {firstName: this.state.firstName, lastName: this.state.lastName})
       .then(response => {
         //console.log(response.data)
         console.log(this.state)
@@ -29,14 +30,16 @@ class AddEmployee extends React.Component {
   render() {
     return (
       <form onSubmit={ (e) => this.handleSubmit(e) }>
-        <h3>Add new record</h3>
-        <label> FirstName:
-          <input type="text" name="firstName" value={this.state.firstName} onChange={(e) => this.onChange("firstName", e)} />
-        </label>
-        <label> LastName:
-          <input type="text" name="lastName" value={this.state.lastName} onChange={(e) => this.onChange("lastName", e)} />
-        </label>
-        <input type="submit" value="Add" />
+        <div class="form-group">
+          <h3>Add new record</h3>
+          <div class="col-sm-10">
+          <label for="txtFirstName"> FirstName: </label>
+          <input class="form-control" type="text" id="txtfirstName" name="firstName" value={this.state.firstName}  placeHolder="first name" onChange={(e) => this.onChange("firstName", e)} />
+          <label for="txtLastName"> LastName: </label>
+          <input class="form-control" type="text" id="txtLastName" name="lastName" value={this.state.lastName} placeHolder="last name" onChange={(e) => this.onChange("lastName", e)} />
+          <button type="submit" class="btn btn-primary">Add Employee</button>
+          </div>
+        </div>
       </form>
     );
   }

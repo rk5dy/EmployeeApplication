@@ -22,7 +22,7 @@ public class Employee {
       return String.format("%s %s", firstName, lastName);
     }
 
-    public String getId(String id) {
+    public String getId() {
       return this.id;
     }
 

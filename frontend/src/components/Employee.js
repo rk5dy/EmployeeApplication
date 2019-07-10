@@ -1,5 +1,6 @@
 import React from 'react';
 import axios from 'axios';
+import config from '../config/config.js';
 class Employee extends React.Component {
   constructor(props) {
     super(props);
@@ -7,7 +8,7 @@ class Employee extends React.Component {
 
   deleteEmployee() {
     console.log(this.props);
-    axios.delete('http://localhost:9090/employee/delete', { params: {'employeeId': this.props.employeeId } })
+    axios.delete(config.hosturi + '/employee/delete/' + this.props.employeeId)
       .then(response => {
         console.log(response.data)
       });

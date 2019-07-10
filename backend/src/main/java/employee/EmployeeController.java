@@ -45,7 +45,7 @@ public class EmployeeController {
         employeeMap.get("firstName").toString(),
         employeeMap.get("lastName").toString());
         employee.setId(employeeId);
-
+        
         Map<String, Object> response = new LinkedHashMap<String, Object>();
         response.put("message", "Employee Updated successfully");
         response.put("employee", repository.save(employee));
@@ -53,7 +53,6 @@ public class EmployeeController {
     }
 
     @DeleteMapping("/delete/{employeeId}")
-    @ResponseBody
     public String deleteEmployee(@PathVariable("employeeId") String employeeId) {
         repository.findById(employeeId).map(employee -> {
           repository.delete(employee);
