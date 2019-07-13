@@ -6,7 +6,7 @@ class EmployeeList extends React.Component {
   renderEmployees() {
     const employeeList = this.props.employees.map((employee) => {
         return (
-          <Employee key={employee.id} id={employee.id} first_name={ employee.firstName } last_name={ employee.lastName }/>
+          <Employee key={employee.id} id={employee.id} first_name={ employee.firstName } last_name={ employee.lastName } onDelete={() => this.props.onDelete(employee.id)}/>
         )
       }
     );

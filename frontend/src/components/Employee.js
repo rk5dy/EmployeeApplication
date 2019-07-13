@@ -6,20 +6,12 @@ class Employee extends React.Component {
     super(props);
   }
 
-  deleteEmployee() {
-    console.log(this.props);
-    axios.delete(config.hosturi + '/employee/delete/' + this.props.id)
-      .then(response => {
-        console.log(response.data)
-      });
-  };
-
   render() {
     return (
     <tr>
       <td>{this.props.first_name}</td>
       <td>{this.props.last_name}</td>
-      <td><button className="btn btn-warning" onClick={() => this.deleteEmployee()}>Delete</button></td>
+      <td><button type="submit" value={"DeleteButton" + this.props.id} className="btn btn-warning" onClick={this.props.onDelete}>Delete</button></td>
     </tr>
     );
   }

@@ -1,6 +1,4 @@
 import React from 'react';
-import axios from 'axios';
-import config from '../config/config';
 
 class AddEmployee extends React.Component {
   constructor(props) {
@@ -11,26 +9,16 @@ class AddEmployee extends React.Component {
     };
   }
 
-  handleSubmit(event) {
-    // console.log(this.state);
-    axios.post(config.hosturi + '/employee/create', {id: 0, firstName: this.state.firstName, lastName: this.state.lastName })
-      .then(response => {
-        // console.log(this.state)
-      });
-  };
-
   onChange(section, event) {
     if (section === "firstName")
       this.setState({ firstName: event.target.value });
     if (section === "lastName")
       this.setState({ lastName: event.target.value });
-
-    console.log(this.state);
   }
 
   render() {
     return (
-      <form onSubmit={ (e) => this.handleSubmit(e) }>
+      <form onSubmit={ (e) => this.props.handleSubmit(e, this.state.firstName, this.state.lastName) }>
         <div className="form-group">
           <h3>Add new record</h3>
           <div className="col-sm-10">

@@ -12,6 +12,22 @@ class EmployeeContainer extends React.Component {
     }
   }
 
+  // handle deleted employee and refresh
+  onDelete(employeeId) {
+      axios.delete(config.hosturi + '/employee/delete/' + employeeId)
+        .then(response => {
+      });
+
+  }
+
+  // handle added employee. Passed via props
+  handleSubmit(event, firstName, lastName) {
+    axios.post(config.hosturi + '/employee/create', {id: 0, firstName: firstName, lastName: lastName })
+      .then(response => {
+
+    });
+  };
+
   componentDidMount() {
     axios.get(config.hosturi + '/employee')
       .then(response => {
@@ -23,8 +39,8 @@ class EmployeeContainer extends React.Component {
 
   render() {
     return (<div>
-        <AddEmployee id="addEmployee" />
-        <EmployeeList id="employeeList" employees={this.state.employeeList}/>
+        <AddEmployee id="addEmployee" handleSubmit={this.handleSubmit} />
+        <EmployeeList id="employeeList" employees={this.state.employeeList} onDelete={(employeeId) => this.onDelete(employeeId)}/>
     </div>);
   }
 }
