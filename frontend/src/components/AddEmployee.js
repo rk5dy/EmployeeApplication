@@ -18,7 +18,7 @@ class AddEmployee extends React.Component {
 
   render() {
     return (
-      <form onSubmit={ (e) => this.props.handleSubmit(e, this.state.firstName, this.state.lastName) }>
+      <form key="addEmployee" onSubmit={ (e) => this.props.handleSubmit(e, this.state.firstName, this.state.lastName) }>
         <div className="form-group">
           <h3>Add new record</h3>
           <div className="col-sm-10">
