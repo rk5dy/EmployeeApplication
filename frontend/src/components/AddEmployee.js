@@ -12,11 +12,10 @@ class AddEmployee extends React.Component {
   }
 
   handleSubmit(event) {
-    console.log(this.state);
-    axios.post(config.hosturi + '/employee/create', {firstName: this.state.firstName, lastName: this.state.lastName})
+    // console.log(this.state);
+    axios.post(config.hosturi + '/employee/create', {id: 0, firstName: this.state.firstName, lastName: this.state.lastName })
       .then(response => {
-        //console.log(response.data)
-        console.log(this.state)
+        // console.log(this.state)
       });
   };
 
@@ -25,19 +24,21 @@ class AddEmployee extends React.Component {
       this.setState({ firstName: event.target.value });
     if (section === "lastName")
       this.setState({ lastName: event.target.value });
+
+    console.log(this.state);
   }
 
   render() {
     return (
       <form onSubmit={ (e) => this.handleSubmit(e) }>
-        <div class="form-group">
+        <div className="form-group">
           <h3>Add new record</h3>
-          <div class="col-sm-10">
-          <label for="txtFirstName"> FirstName: </label>
-          <input class="form-control" type="text" id="txtfirstName" name="firstName" value={this.state.firstName}  placeHolder="first name" onChange={(e) => this.onChange("firstName", e)} />
-          <label for="txtLastName"> LastName: </label>
-          <input class="form-control" type="text" id="txtLastName" name="lastName" value={this.state.lastName} placeHolder="last name" onChange={(e) => this.onChange("lastName", e)} />
-          <button type="submit" class="btn btn-primary">Add Employee</button>
+          <div className="col-sm-10">
+          <label htmlFor="txtFirstName"> FirstName: </label>
+          <input className="form-control" type="text" id="txtfirstName" name="firstName" value={this.state.firstName}  placeholder="first name" onChange={(e) => this.onChange("firstName", e)} />
+          <label htmlFor="txtLastName"> LastName: </label>
+          <input className="form-control" type="text" id="txtLastName" name="lastName" value={this.state.lastName} placeholder="last name" onChange={(e) => this.onChange("lastName", e)} />
+          <button type="submit" className="btn btn-primary">Add Employee</button>
           </div>
         </div>
       </form>

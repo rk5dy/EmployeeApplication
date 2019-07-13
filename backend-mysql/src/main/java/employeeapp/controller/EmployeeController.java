@@ -38,8 +38,7 @@ public class EmployeeController {
     }
 
     // basic POST method
-    @PostMapping(path="/create", consumes="application/json", produces="application/json")
-    @ResponseBody
+    @PostMapping("/create")
     public Employee createEmployee(@RequestBody Employee employee) {
       employee.setId(0);
       employeeService.save(employee);

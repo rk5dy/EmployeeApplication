@@ -4,11 +4,12 @@ USE `EmployeeDatabase`;
 DROP TABLE IF EXISTS `Employee`;
 
 create table Employee (
-	id int not null,
+	id int not null AUTO_INCREMENT,
     first_name varchar(50),
-    last_name varchar(50)
+    last_name varchar(50),
+    PRIMARY KEY (id)
 );
 
 INSERT INTO Employee VALUES
-  (1, 'first', 'person'),
-  (2, 'second', 'person');
+  (0,'first', 'person'),
+  (0, 'second', 'person');
