@@ -37,6 +37,12 @@ public class EmployeeController {
       return employeeService.findAll();
     }
 
+    // modified get method
+    @GetMapping("/get/{employeeFirstName}")
+    public List<Employee> getEmployeeByFirstName(@PathVariable("employeeFirstName") String employeeFirstName) {
+      return employeeService.findByFirstName(employeeFirstName);
+    }
+
     // basic POST method
     @PostMapping("/create")
     public Employee createEmployee(@RequestBody Employee employee) {

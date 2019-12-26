@@ -11,6 +11,7 @@ import employeeapp.entity.Employee;
 
 @Service
 public class EmployeeServiceImpl implements EmployeeService {
+
   private EmployeeRepository employeeRepository;
 
   @Autowired
@@ -36,6 +37,13 @@ public class EmployeeServiceImpl implements EmployeeService {
     }
 
     return e;
+  }
+
+  @Override
+  public List<Employee> findByFirstName(String firstName) {
+    List<Employee> result = employeeRepository.findByFirstName(firstName);
+
+    return result;
   }
 
   @Override
